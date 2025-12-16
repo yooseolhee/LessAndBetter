@@ -44,7 +44,8 @@ export default function Login() {
 
         navigate("/home");
     } catch (error: any) {
-        alert("구글 로그인에 실패했습니다.");
+       console.error("Google login error:", error);
+       alert(error.code || error.message);
     }
     };
 

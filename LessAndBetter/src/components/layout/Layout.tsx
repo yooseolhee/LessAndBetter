@@ -1,17 +1,17 @@
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import { useTheme } from "../../context/ThemeContext";
-import { THEMES } from "../../styles/themes";
+import { Outlet } from "react-router-dom";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
+export default function Layout() {
 
   return (
-    <div className={`min-h-screen ${THEMES[theme].bg}`}>
+    <div className="h-screen flex flex-col">
       <Header />
-      <div className="flex">
+      <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-12">{children}</main>
+        <main className="flex-1 p-6">
+          <Outlet />
+        </main>
       </div>
     </div>
   );

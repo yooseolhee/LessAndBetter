@@ -19,11 +19,11 @@ export default function BodyFilter({
           key={part.key}
           onClick={() => onSelect(part.key)}
           className={`
-            px-6 py-3 rounded-full text-m font-semibold transition
+            px-6 py-3 rounded-full text-m font-semibold transition cursor-pointer
             ${
               selected === part.key
-                ? "bg-green-500 text-white"
-                : "bg-green-50 text-green-700 hover:bg-green-100"
+                ? "bg-gradient-to-br from-green-600 to-green-300 text-white"
+                : "bg-green-100 text-green-700 hover:bg-gradient-to-br from-green-400 to-green-200 hover:text-white"
             }
           `}
         >

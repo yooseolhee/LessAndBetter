@@ -7,7 +7,8 @@ export default function VideoCard({ video }: { video: any }) {
       className="
         bg-white rounded-2xl shadow
         cursor-pointer overflow-hidden
-        hover:shadow-lg transition
+        hover:shadow-lg
+        hover:bg-gradient-to-b from-green-100 to-white-400 transition
       "
     >
       <img

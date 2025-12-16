@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCC1V_Zw-92nWrwEGlg4llnxiuUm_bCcWM",
-  authDomain: "lessandbetter-cb437.firebaseapp.com",
-  projectId: "lessandbetter-cb437",
-  storageBucket: "lessandbetter-cb437.firebasestorage.app",
-  messagingSenderId: "954639568516",
-  appId: "1:954639568516:web:a88c4300192b0ef4023cd1",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

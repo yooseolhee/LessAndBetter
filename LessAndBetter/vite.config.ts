@@ -7,4 +7,13 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
+  server: {
+    proxy: {
+      "/quote": {
+        target: "https://type.fit",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/quote/, ""),
+      },
+    },
+  }
 })

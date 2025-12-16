@@ -24,11 +24,11 @@ export default function AccountDangerZone() {
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow border border-red-300">
+    <div className="w-full bg-white rounded-xl p-6 shadow border border-red-300 flex flex-col items-center">
 
       <button
         onClick={handleDelete}
-        className="px-6 py-3 rounded-lg bg-red-500 text-white hover:bg-red-600"
+        className="px-6 py-3 rounded-lg bg-red-500 text-white flex hover:bg-red-600 cursor-pointer"
       >
         회원 탈퇴
       </button>

@@ -51,34 +51,29 @@ export default function HomeTraining() {
   };
 
   return (
-    <Layout>
-  {/* 페이지 헤더 + 필터 */}
+    <>
   <div className="mb-14 flex items-start justify-between">
-    {/* 왼쪽: 타이틀 */}
     <div>
-      <h1 className="text-3xl font-bold mb-2">
+      <h1 className="ml-30 text-3xl font-bold mb-2">
         홈트레이닝 영상 추천
       </h1>
-      <p className="text-xl">
+      <p className="ml-30 text-xl">
         부위별로 조회수 높은 홈트 영상을 추천해드려요!
       </p>
     </div>
 
-    {/* 오른쪽: 부위 선택 */}
     <BodyFilter selected={part} onSelect={setPart} />
   </div>
 
-  {/* 영상 리스트 */}
   {loading ? (
     <p className="text-gray-500">로딩 중...</p>
   ) : (
-    <div className="grid grid-cols-4 gap-10">
+    <div className="grid grid-cols-4 gap-10 ml-30">
       {videos.map((video) => (
         <VideoCard key={video.id} video={video} />
       ))}
     </div>
   )}
-</Layout>
-
+  </>
   );
 }
