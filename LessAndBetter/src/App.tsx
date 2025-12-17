@@ -1,9 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Intro from "./components/intro";
 import Home from "./pages/HomePage";
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
+
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import HomeTraining from "./pages/TrainingVideoPage";
@@ -15,14 +13,7 @@ import CommunityPostPage from "./features/community/CommunityPostPage";
 import TimerPage from "./pages/TimerPage";
 
 function App() {
-  const [user, setUser] = useState<any>(null);
-
-  useEffect(()=>{
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-    return unsubscribe;
-  }, []);
+  
   return (
     <BrowserRouter>
       <Routes>

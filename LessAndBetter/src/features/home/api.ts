@@ -4,7 +4,6 @@ import {
   orderBy,
   limit,
   getDocs,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import type { Post } from "../../features/community/types";

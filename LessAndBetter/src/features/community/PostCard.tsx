@@ -10,7 +10,7 @@ export default function PostCard({
   return (
     <div
       onClick={onClick}
-      className="h-full min-h-[260px] flex flex-col bg-gradient-to-br from-green-200 to-green-50 rounded-2xl p-5 cursor-pointer hover:shadow-lg hover:scale-110 transition"
+      className="h-full min-h-[200px] flex flex-col bg-gradient-to-br from-green-200 to-green-50 rounded-2xl p-5 cursor-pointer hover:shadow-lg hover:scale-110 transition"
     >
       {/* 상단: 제목 */}
       <h3 className="text-lg font-semibold mb-2 line-clamp-2">

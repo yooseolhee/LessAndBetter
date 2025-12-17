@@ -5,7 +5,6 @@ import {
   orderBy,
   query,
   serverTimestamp,
-  updateDoc,
   doc,
   increment,
   runTransaction,

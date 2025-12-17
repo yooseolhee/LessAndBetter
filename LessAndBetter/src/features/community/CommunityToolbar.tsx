@@ -13,7 +13,7 @@ export default function CommunityToolbar({
         <button
           key={s}
           onClick={() => onChangeSort(s)}
-          className={`px-4 py-2 rounded-full hover:bg-green-100 ${
+          className={`text-xs px-4 py-2 rounded-full hover:bg-green-100 ${
             sort === s
               ? "bg-gradient-to-br from-green-600 to-green-400 text-white"
               : ""

@@ -1,22 +1,13 @@
 import { useEffect, useState } from "react";
-import { auth } from "../../firebase";
-import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const TEXT = "Less And Better";
 
-export default function Header() {
-  const [user, setUser] = useState<User | null>(null);
+export default function Header({onOpenSidebar}:{onOpenSidebar:()=>void}) {
   const navigate = useNavigate();
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-    return unsubscribe;
-  }, []);
 
   useEffect(() => {
     const speed = isDeleting ? 150 : 200;
@@ -54,10 +45,13 @@ export default function Header() {
       </div>
 
       {/* 중앙 타이핑 텍스트 */}
-      <div className="text-2xl font-bold tracking-wide text-green-700">
+      <div className="text-xl font-bold tracking-wide text-green-700">
         <span>{displayText}</span>
         <span className="animate-pulse ml-1">|</span>
       </div>
+      <p className="text-sm cursor-pointer font-semibold text-green-700" onClick={onOpenSidebar}>
+          Menu
+        </p>
 
     </header>
   );

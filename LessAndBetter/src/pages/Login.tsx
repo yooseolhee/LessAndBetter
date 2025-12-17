@@ -70,7 +70,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-96 p-8 bg-white shadow rounded-xl space-y-4">
-        <h1 className="text-2xl font-bold">로그인</h1>
+        <h1 className="text-lg font-bold">로그인</h1>
 
         <input
           className="w-full border p-3 rounded"

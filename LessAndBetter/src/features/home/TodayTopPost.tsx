@@ -43,14 +43,14 @@ export default function TodayTopPost() {
         {post.title}
       </p>
 
-      <p className="text-sm text-gray-600 line-clamp-3">
+      <p className="text-xs text-gray-600 line-clamp-3">
         {post.content}
       </p>
     </div>
 
     {/* 🔥 하단 영역 (카드 바닥) */}
     <div className="pt-4">
-      <div className="flex justify-center gap-4 text-sm text-gray-500">
+      <div className="flex justify-center gap-4 text-xs text-gray-500">
         <div className="flex items-center gap-1">
           <span>❤️</span>
           <span>{post.likeCount}</span>

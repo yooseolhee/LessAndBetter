@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Card from "../layout/Card";
 
 type Phase = "work" | "rest" | "done";
 
@@ -78,16 +77,16 @@ export default function IntervalTimer({ mode = "default" }: IntervalTimerProps) 
 
   return (
     <div className="rounded-2xl p-6 flex flex-col gap-4 h-full justify-between">
-    <h1 className="text-xl font-bold text-center">⏱ 인터벌 타이머 </h1>
+    <h1 className="text-sm font-semibold text-center">⏱ 인터벌 타이머 </h1>
       {/* 설정 */}
-      <div className="grid grid-cols-3 gap-4 text-lg">
+      <div className="mx-auto grid max-w-3xl grid-cols-3 gap-4 text-sm">
         <label>
           운동(초)
           <input
             type="number"
             value={workTime}
             onChange={(e) => setWorkTime(+e.target.value)}
-            className="text-center text-2xl mt-1 w-full border rounded px-2 py-2"
+            className="text-center text-md mt-1 w-full border rounded px-2 py-2"
           />
         </label>
 
@@ -97,7 +96,7 @@ export default function IntervalTimer({ mode = "default" }: IntervalTimerProps) 
             type="number"
             value={restTime}
             onChange={(e) => setRestTime(+e.target.value)}
-            className="text-center text-2xl mt-1 w-full border rounded px-2 py-2"
+            className="text-center text-md mt-1 w-full border rounded px-2 py-2"
           />
         </label>
 
@@ -107,14 +106,14 @@ export default function IntervalTimer({ mode = "default" }: IntervalTimerProps) 
             type="number"
             value={sets}
             onChange={(e) => setSets(+e.target.value)}
-            className="text-center text-2xl mt-1 w-full border rounded px-2 py-2"
+            className="text-center text-md mt-1 w-full border rounded px-2 py-2"
           />
         </label>
       </div>
 
       {/* 상태 표시 */}
       <div className="text-center mt-4">
-        <p className="text-3xl text-gray-500">
+        <p className="text-lg text-gray-500">
           {phase === "work" && "운동 중"}
           {phase === "rest" && "휴식 중"}
           {phase === "done" && "완료 🎉"}
@@ -122,18 +121,18 @@ export default function IntervalTimer({ mode = "default" }: IntervalTimerProps) 
 
         <p className={`
         font-bold text-center
-        ${mode === "menu" ? "text-8xl" : "text-4xl"}
+        ${mode === "menu" ? "text-4xl" : "text-2xl"}
         `}>
           {timeLeft}s
         </p>
 
-        <p className="text-xl text-gray-500 mt-1">
+        <p className="text-md text-gray-500 mt-1">
           {currentSet} / {sets} 세트
         </p>
       </div>
 
       {/* 총 운동 시간 */}
-      <p className="text-2xl text-gray-600 text-center">
+      <p className="text-lg text-gray-600 text-center">
         총 운동 시간: <b>{formatTime(totalWorkTime)}</b>
       </p>
 
@@ -146,7 +145,7 @@ export default function IntervalTimer({ mode = "default" }: IntervalTimerProps) 
                 setRunning(true);
           }}
           disabled={running || phase === "done"}
-          className="cursor-pointer hover:bg-green-400 px-10 py-5 text-xl text-semibold bg-green-500 text-white rounded-lg disabled:opacity-50"
+          className="cursor-pointer hover:bg-green-400 px-5 py-2 text-md text-semibold bg-green-500 text-white rounded-lg disabled:opacity-50"
         >
           시작
         </button>
@@ -158,7 +157,7 @@ export default function IntervalTimer({ mode = "default" }: IntervalTimerProps) 
             setCurrentSet(1);
             setPhase("work");
           }}
-          className="cursor-pointer px-10 py-5 text-xl text-semibold bg-gray-200 hover:bg-gray-300 rounded-lg"
+          className="cursor-pointer px-5 py-2 text-md text-semibold bg-gray-200 hover:bg-gray-300 rounded-lg"
         >
           리셋
         </button>

@@ -33,10 +33,10 @@ export default function TodayMotivation() {
         <p className="text-gray-400">불러오는 중...</p>
       ) : (
         <>
-          <p className="text-lg font-medium text-gray-800 leading-relaxed">
+          <p className="text-md font-medium text-gray-800 leading-relaxed">
             “{quote}”
           </p>
-          <span className="mt-4 text-sm text-gray-500 text-right">
+          <span className="mt-4 text-xs text-gray-500 text-right">
             — {author}
           </span>
         </>

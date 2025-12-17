@@ -12,10 +12,15 @@ const menus = [
   { name: "설정", icon: Settings, path:'/settings' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({
+  forceOpen=false,
+}: {
+  forceOpen: boolean;
+}
+) {
   const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
@@ -23,14 +28,18 @@ export default function Sidebar() {
     return unsubscribe;
   }, []);
 
+  if(!forceOpen && window.innerWidth <768){
+    return null;
+}
+
   return (
-    <div className="fixed top-0 left-0 z-50 h-screen group flex items-center">
+    <div className="fixed top-0 left-0 z-50 h-screen group flex items-center pointer-events-auto">
       {/* hover 감지 영역 */}
-      <div className="absolute top-0 left-0 h-full w-20"/>
+      <div className="absolute top-0 left-0 h-full w-20 hidden md:block pointer-events-none"/>
 
       {/* 실제 사이드바 */}
       <aside
-        className="
+        className={`
           h-[80dvh]
           w-[22vw]
           min-w-[240px]
@@ -38,17 +47,17 @@ export default function Sidebar() {
           bg-white
           rounded-r-2xl
           shadow-2xl
-          p-5
+          p-3
           flex
           flex-col
-          gap-6
+          gap-3
           transform
-          -translate-x-full
-          group-hover:translate-x-0
           transition-transform
           duration-300
           ease-out
-        "
+          ${forceOpen ? "translate-x-0" : "-translate-x-full"}
+        md:group-hover:translate-x-0
+        `}
       >
         {/* 프로필 */}
         <div className="gap-3 p-3 bg-gray-50 rounded-xl">
@@ -92,7 +101,7 @@ export default function Sidebar() {
                 <p className="text-gray-700 text-sm">{user.email}</p>
                 <button
                   onClick={() => signOut(auth)}
-                  className="mt-3 px-3 py-1 rounded-full border border-gray-300 hover:bg-gray-100"
+                  className="text-xs mt-3 px-2 py-1 rounded-full border border-gray-300 hover:bg-gray-100"
                 >
                   로그아웃
                 </button>
@@ -107,10 +116,10 @@ export default function Sidebar() {
             <NavLink
               key={m.name}
               to={m.path}
-              className="flex items-center gap-3 p-8 rounded-xl hover:bg-gradient-to-r from-green-100 to-white transition"
+              className="flex items-center gap-3 p-3 rounded-xl hover:bg-gradient-to-r from-green-100 to-white transition"
             >
               <m.icon className="w-5 h-5 text-green-500" />
-              <span className="text-md">{m.name}</span>
+              <span className="text-xs">{m.name}</span>
             </NavLink>
           ))}
         </nav>

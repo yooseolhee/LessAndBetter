@@ -1,7 +1,6 @@
-import { signOut } from "firebase/auth";
-import Layout from "../components/layout/Layout";
+
 import AccountDangerZone from "../components/settings/AccountDangerZone";
-import { auth } from "../firebase";
+
 
 export default function Settings() {
 

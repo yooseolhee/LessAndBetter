@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Layout from "../components/layout/Layout";
 import BodyFilter from "../components/training/BodyFilter";
 import VideoCard from "../components/training/VideoCard";
 
@@ -54,10 +53,10 @@ export default function HomeTraining() {
     <>
   <div className="mb-14 flex items-start justify-between">
     <div>
-      <h1 className="ml-30 text-3xl font-bold mb-2">
+      <h1 className="ml-30 text-xl font-bold mb-2">
         홈트레이닝 영상 추천
       </h1>
-      <p className="ml-30 text-xl">
+      <p className="ml-30 text-md">
         부위별로 조회수 높은 홈트 영상을 추천해드려요!
       </p>
     </div>
